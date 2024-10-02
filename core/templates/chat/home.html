@@ -1,0 +1,20 @@
+{% extends 'base/base.html' %}
+
+
+{% block content %}
+    <h2>Bienvenido a Chat CS!!!!</h2>
+    <h4>Seleccionar una de las salas de Chat</h4>
+    
+    {% if error_message %}
+        <div class="alert alert-danger" role="alert">
+            <strong>{{error_message}}</strong>Comuniquese con el administrador
+            <button type="button" class="btn-close"></button>
+        </div>
+
+    {% endif %}
+        
+    {% for room in rooms %}
+        <a class="btn btn-success" href="{% url 'room' room.id %}">{{room}}</a>
+    {% endfor %}
+{% endblock %}
+    
